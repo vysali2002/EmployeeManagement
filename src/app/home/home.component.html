@@ -1,0 +1,38 @@
+
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between mt-5">
+        <h3 class="fw-bolder"> Employee List</h3>
+        <button routerLink="/users/add" class="btn btn-warning"><i class="fa-solid fa-user-plus"> Add
+                User</i></button>
+    </div>
+    <div class="mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Id</th>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>status</th>
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of allUsers;let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.status=="1"?"Active":"InActive"}}</td>
+                    <td>
+                <button  routerLink="/users/{{user.id}}/edit" class="btn text-primary"><i class="fa-solid fa-edit"></i></button>
+                        <button (click)="deleteUser(user.id)" class="btn text-dangerous"><i class="fa-solid fa-trash"></i></button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
